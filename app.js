@@ -14,6 +14,8 @@ var app = express();
 
 app.use(helmet());
 
+require('dotenv').config();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -43,7 +45,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useNewUrlParser', true);
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost:27017/node_react_bp', function (err) {
+mongoose.connect('mongodb://localhost:27017/srm_tool', function (err) {
   console.log('mongodb connected ?', err ? false : true);
 });
 
