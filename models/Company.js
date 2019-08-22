@@ -6,7 +6,6 @@ var companySchema = new Schema({
     type: String,
     default: "Unknown"
   },
-  admin: [{ type: Schema.Types.ObjectId, ref: 'User'}],
   emailFormat: {
     type: String,
   }

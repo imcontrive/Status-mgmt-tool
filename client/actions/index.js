@@ -29,3 +29,20 @@ export const noToken = () => {
     })
   })
 }
+
+export const getCompaniesList = () => dispatch => {
+  fetch('/api/v1/companies', {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      dispatch({
+        type: 'GET_COMPANY_LIST_SUCCESS',
+        companies: data.company
+      })
+    }
+  })
+}

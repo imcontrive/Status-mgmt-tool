@@ -6,10 +6,12 @@ var projectSchema = new Schema({
     type: String,
     required: true
   },
-  company: [{ type: Schema.Types.ObjectId, ref: 'Company'}],
+  description:{
+    type: String,
+    default:"Please explain the Project description"
+  },
+  company: { type: Schema.Types.ObjectId, ref: 'Company'},
 	assignedUser: [{ type: Schema.Types.ObjectId, ref: 'User'}]
-  
-
 }, {timestamps: true});
 
 var Project = mongoose.model("Project", projectSchema);

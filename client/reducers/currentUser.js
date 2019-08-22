@@ -1,18 +1,19 @@
 const initialState = {
   user: null,
-  token: localStorage.getItem('authToken') || '',
+  token: localStorage.getItem('jwt') || '',
+  isAuthenticated: false,
   isAuthInProgress: true
 }
 
 function currentUser(state = initialState, action) {
   switch (action.type) {
-    case 'USER_LOGIN_SUCCESS':
-      return {
-        ...state,
-        user: action.data.user,
-        isAuthInProgress: false
-      }
-    
+    case "REGISTER_USER":
+		return {
+      ...state,
+			user: action.payload.user,
+			isAuthenticated: true,
+      isAuthInProgress: false
+		};
     case 'USER_LOGIN_FAILED':
       localStorage.clear();
       return {

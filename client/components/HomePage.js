@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="homePage-wrapper">
       <h1>Status Reports Management (SRM) tool</h1>
     </div>
   );

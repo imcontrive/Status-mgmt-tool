@@ -16,23 +16,19 @@ var userSchema = new Schema({
 	password: {
 		type: String,
 		min: 6,
-		max: 20,
 		required: true,
   },
 	isAdmin: {
 		type: Boolean,
 		default: false,
 	},
-	company: [{ type: Schema.Types.ObjectId, ref: 'Company'}]
+	company: { type: Schema.Types.ObjectId, ref: 'Company', required: true}
 }, {timestamps: true});
 
 userSchema.pre('save', function (next) {
   if(this.password && this.isModified('password')) {
 		this.password = bcrypt.hashSync(this.password, salt);
   }
-  if(this.email === process.env.EMAIL){
-		this.isAdmin = true;
-	} 
   next();
 });
 
