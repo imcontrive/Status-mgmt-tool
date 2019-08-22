@@ -1,4 +1,5 @@
-# react-node-boilerplate
+# Status Reports Management (SRM) tool
+----
 A simple boilerplate for creating full stack application in javascript using react for client side and node/express as backend for creating APIs. 
 
 ## Quick Start
